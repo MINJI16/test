@@ -5,13 +5,21 @@
     <title>Test blog</title>
 </head>
 <body>
-     <h1><a href="">Django Test blog</a></h1>
+    <div>
+        <h1><a href="">Django Test blog</a></h1>
 
-     <p>2020.11.19</p>
-     <h2><a href="">First post</a> </h2>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
 
-     <p>2020.</p>
-     <h2><a href="">Second post</a> </h2>
+    </div>
 
+    {% for post in posts %}
+        {{post}}
+    {% endfor %}
 </body>
 </html>
